@@ -1,15 +1,24 @@
 name: "Set Issue Label"
-on:
-  issue_comment:
-    types: [created]
+on: issue_comment
 
 jobs:
-  test:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      - name: Issue Comment Labeler
-        uses: Amwam/issue-comment-action@v1.3.1
-        with:
-          keywords: '["help", "wanted"]'
-          labels: '["help wanted"]'
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - run: |
+          echo A comment on PR $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+
+  issue_commented:
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on issue $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
