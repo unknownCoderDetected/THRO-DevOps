@@ -1,0 +1,19 @@
+{
+  "name": "thro-devops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unknownCoderDetected/THRO-DevOps.git"
+  },
+  "author": "Gerrit Wolf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unknownCoderDetected/THRO-DevOps/issues"
+  },
+  "homepage": "https://github.com/unknownCoderDetected/THRO-DevOps#readme"
+}
