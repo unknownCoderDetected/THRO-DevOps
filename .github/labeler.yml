@@ -1,8 +1,6 @@
 REPO:
   - '*'
-TEST:
-  - src/test/**/*.spec.js
-FRONTEND:
-  - any: ['src/frontend/**/*', '!src/frontend/docs/*']
-BACKEND:
-  - any: ['src/backend/**/*', '!src/backend/docs/*']
+ASSET:
+  - src/assets/*
+COMPONENTS:
+  - src/components/*
