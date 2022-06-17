@@ -1,0 +1,33 @@
+image: node:14.15.0
+stages:
+  - build
+  - test
+  - deploy
+
+build-api:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - node_modules/
+
+test-api:
+  stage: test
+  script: npm test
+
+deploy-api:
+  image: docker:latest
+  stage: deploy
+  services:
+    - docker:dind
+  script:
+    - docker login -u $DOCKER_USER_NAME -p $DOCKER_USER_PASSWORD $DOCKER_REGISTRY_URL
+    - docker build -t studwolfge7923/learn-expense-api:latest .
+    - docker push studwolfge7923/learn-expense-api:latest
+
+
+
+
+
